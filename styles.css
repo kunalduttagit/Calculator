@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #F0F0F3;
+    font-family: Montserrat, 'Helvetica Neue';
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+
+}
+button:focus {
+    outline:0;
+}
+
+button{
+    width: 80px;
+    height: 80px;
+    box-shadow: -10px -10px 30px #FFF, 10px 10px 30px #AEAEC040;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 25px;
+    color: #7a7a7a;
+    font-weight: 500;
+    transition-duration: 150ms;
+}
+
+button:hover{
+ box-shadow:
+    -10px -10px 30px #fff,
+    10px 10px 30px #aeaec040,
+    inset -10px -10px 10px #aeaec025,
+    inset 10px 10px 10px #fff;
+}
+
+button:active{
+    box-shadow:
+    inset -10px -10px 10px #ffffff70,
+    inset 10px 10px 10px #aeaec020;
+
+    /* border: solid 3px #ffffff70; */
+}
+
+.clear{
+    background: rgba(255, 223, 237, 0.678)
+    
+}
+
+.clear:hover{
+    box-shadow: inset 10px 10px 10px rgba(253, 241, 246, 0.678),
+    inset -10px -10px 10px rgba(255, 208, 228, 0.678);
+}
+
+.clear:active{
+    box-shadow: inset -10px -10px 10px rgba(253, 241, 246, 0.678),
+    inset 10px 10px 10px rgba(255, 208, 228, 0.678);
+    font-size: 24px;
+}
+
+.screen{
+    outline: none;
+    background-color: #F0F0F3;
+    box-shadow: inset -10px -10px 10px #ffffff70, inset 10px 10px 10px #aeaec020;
+    height: 160px;
+    font-size: 25px;
+    color: #03c8a8;
+    font-weight: 400;
+    overflow: hidden;
+    text-align: right;
+}
+
+.expr{
+    background-color: transparent;
+    color: #7a7a7a;
+    width: 330px;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+.answer{
+    transition-duration: 150ms;
+    width: 330px;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+.answer::-webkit-scrollbar, .expr::-webkit-scrollbar {
+  display: none;
+}
+.answer, .expr {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.screenAnimate{
+    font-size: 65px;
+    padding-top: 2rem;
+}
