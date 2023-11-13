@@ -1,15 +1,22 @@
 <html>
     <head>
-        <link href="/dist/output.css" rel="stylesheet">
+        <link href="build.css" rel="stylesheet">
         <link rel="stylesheet" href="styles.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&family=Poppins:wght@200;300;400;500&family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet"></link>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet"></link>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
 
     <body>
-        <div class="container flex justify-center align-middle items-center flex-col min-w-full min-h-full text-center">
+        <div class="container flex justify-center align-middle items-center flex-col min-w-full min-h-full text-center pt-12">
+            <!-- accesibility toggle -->
+            <div class="accesibility relative w-[368px]">
+                <input  type="checkbox" id="box"/>
+                <label onclick="toggle()" for="box" class="toggle rounded-full right-0 bottom-10" id="toggle"></label>
+            </div>
+
+
             <!-- input -->
             <div class='screen py-4 flex flex-col items-end justify-around px-6 w-[368px] rounded-xl mb-5'>
                 <p class="text-[40px] answer"></p>
@@ -18,40 +25,43 @@
 
 
             <!-- buttons -->
-            <div class='flex space-x-4 my-4'>
-                <button onclick="clears()" class="text-[rgba(234,76,137,1)] clear">AC</button>
-                <button onclick="backspace()" class="flex items-center justify-center">
-                    <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M11.142 20C8.91458 20 7.80085 20 6.87114 19.4986C5.94144 18.9971 5.35117 18.0781 4.17061 16.24L3.48981 15.18C2.4966 13.6336 2 12.8604 2 12C2 11.1396 2.4966 10.3664 3.48981 8.82001L4.17061 7.76001C5.35117 5.92191 5.94144 5.00286 6.87114 4.50143C7.80085 4 8.91458 4 11.142 4L13.779 4C17.6544 4 19.5921 4 20.7961 5.17157C22 6.34315 22 8.22876 22 12C22 15.7712 22 17.6569 20.7961 18.8284C19.5921 20 17.6544 20 13.779 20H11.142Z" stroke="#ffbf7f" stroke-width="1.8"/>
-                        <path d="M15.5 9.50002L10.5 14.5M10.5 9.5L15.5 14.5" stroke="darkorange" stroke-width="1.8" stroke-linecap="round"/>
-                    </svg>
-                </button>
-                <button onclick="optr('%')" class="text-[#0cbcff]">%</button>
-                <button onclick="optr('/')" class="text-4xl text-[#0cbcff]">÷</button>
+            <div class=b>
+                <div class='flex space-x-4 my-4 buttons'>
+                    <button onclick="clears()" class="text-[rgba(234,76,137,1)] clear">AC</button>
+                    <button onclick="backspace()" class="flex items-center justify-center">
+                        <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11.142 20C8.91458 20 7.80085 20 6.87114 19.4986C5.94144 18.9971 5.35117 18.0781 4.17061 16.24L3.48981 15.18C2.4966 13.6336 2 12.8604 2 12C2 11.1396 2.4966 10.3664 3.48981 8.82001L4.17061 7.76001C5.35117 5.92191 5.94144 5.00286 6.87114 4.50143C7.80085 4 8.91458 4 11.142 4L13.779 4C17.6544 4 19.5921 4 20.7961 5.17157C22 6.34315 22 8.22876 22 12C22 15.7712 22 17.6569 20.7961 18.8284C19.5921 20 17.6544 20 13.779 20H11.142Z" stroke="#ffbf7f" stroke-width="2.5"/>
+                            <path d="M15.5 9.50002L10.5 14.5M10.5 9.5L15.5 14.5" stroke="darkorange" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                    <button onclick="optr('%')" class="text-[#0cbcff] font-semibold">%</button>
+                    <button onclick="optr('/')" class="text-4xl text-[#0cbcff]">÷</button>
+                </div>
+                <div class='flex space-x-4 my-4'>
+                    <button onclick="num(7)">7</button>
+                    <button onclick="num(8)">8</button>
+                    <button onclick="num(9)">9</button>
+                    <button onclick="optr('*')" class="text-4xl text-[#0cbcff]">×</button>
+                </div>
+                <div class='flex space-x-4 my-4'>
+                    <button onclick="num(4)">4</button>
+                    <button onclick="num(5)">5</button>
+                    <button onclick="num(6)">6</button>
+                    <button onclick="optr('-')" class="text-5xl text-[#0cbcff]">-</button>
+                </div>
+                <div class='flex space-x-4 my-4'>
+                    <button onclick="num(1)">1</button>
+                    <button onclick="num(2)">2</button>
+                    <button onclick="num(3)">3</button>
+                    <button onclick="optr('+')" class="text-4xl text-[#0cbcff]">+</button>
+                </div>
+                <div class='flex space-x-4 my-4 w-[368px]'>
+                    <button onclick="num(0)" class="w-1/2 rounded-full">0</button>
+                    <button onclick="num('.')" class="w-1/4">.</button>
+                    <button onclick="answer()" class="w-1/4 text-[#03c8a8] text-4xl">=</button>
+                </div>
             </div>
-            <div class='flex space-x-4 my-4'>
-                <button onclick="num(7)">7</button>
-                <button onclick="num(8)">8</button>
-                <button onclick="num(9)">9</button>
-                <button onclick="optr('*')" class="text-4xl text-[#0cbcff]">×</button>
-            </div>
-            <div class='flex space-x-4 my-4'>
-                <button onclick="num(4)">4</button>
-                <button onclick="num(5)">5</button>
-                <button onclick="num(6)">6</button>
-                <button onclick="optr('-')" class="text-5xl text-[#0cbcff]">-</button>
-            </div>
-            <div class='flex space-x-4 my-4'>
-                <button onclick="num(1)">1</button>
-                <button onclick="num(2)">2</button>
-                <button onclick="num(3)">3</button>
-                <button onclick="optr('+')" class="text-4xl text-[#0cbcff]">+</button>
-            </div>
-            <div class='flex space-x-4 my-4 w-[368px]'>
-                <button onclick="num(0)" class="w-1/2 rounded-full">0</button>
-                <button onclick="num('.')" class="w-1/4">.</button>
-                <button onclick="answer()" class="w-1/4 text-[#03c8a8] text-4xl">=</button>
-            </div>
+
         </div>
 
 

@@ -18,7 +18,12 @@ const checkPrecision = () => {
     }
 
     precision = Math.max(precision, temp);
-    console.log(temp);
+
+    for (let i = 1; i < expression.length; i++) {
+        if (expression[i] == '/') {
+            precision = Math.max(precision, 5);
+        }
+    }
 };
 
 
@@ -91,8 +96,32 @@ const backspace = () => {
     expression = expression.slice(0, -1);
     checkPrecision();
     out(expression);
+    document.querySelector('.answer').classList.remove('screenAnimate');
     bigAns();
 }
+
+const toggle = () => {
+    document.querySelector('.container').classList.toggle('darkcontainer');
+
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach(button => {
+        button.classList.toggle('dark');
+    });
+
+    document.querySelector('.screen').classList.toggle('darkscreen');
+    document.querySelector('.buttons').classList.toggle('darkbuttons');
+    document.querySelector('.b').classList.toggle('db');
+
+    const svg = document.querySelector('svg');
+    const isDarkMode = document.querySelector('.b').classList.contains('db');
+
+    let path = svg.querySelectorAll('path');
+    path[0].setAttribute('stroke', isDarkMode ? '#A149FA' : '#ffbf7f');
+    path[1].setAttribute('stroke', isDarkMode ? '#FC2947' : 'darkorange');
+     
+}
+
+
 
 //depreciated 
 const forceUpdate = () => {

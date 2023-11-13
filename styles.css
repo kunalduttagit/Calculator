@@ -8,13 +8,18 @@
 }
 
 body {
-    background-color: #F0F0F3;
     font-family: Montserrat, 'Helvetica Neue';
     align-items: center;
     justify-content: center;
     -webkit-tap-highlight-color: transparent;
 
 }
+
+.container{
+    background-color: #F0F0F3;
+    transition-duration: 0.2s;
+}
+
 button:focus {
     outline:0;
 }
@@ -68,7 +73,7 @@ button:active{
 .screen{
     outline: none;
     background-color: #F0F0F3;
-    box-shadow: inset -10px -10px 10px #ffffff70, inset 10px 10px 10px #aeaec020;
+    box-shadow: inset -10px -10px 10px #ffffff90, inset 10px 10px 10px #aeaec070;
     height: 160px;
     font-size: 25px;
     color: #03c8a8;
@@ -95,11 +100,118 @@ button:active{
   display: none;
 }
 .answer, .expr {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .screenAnimate{
     font-size: 65px;
     padding-top: 2rem;
 }
+
+#box{
+    display: none;
+}
+
+.toggle{
+    position: absolute;
+    background-color: #7a7a7a;
+    display: inline-block;
+    width: 55px;
+    height:30px;
+    box-shadow: inset -10px -10px 10px #ffffff90, inset 10px 10px 10px #aeaec070;
+    background: #f0f0f3;
+    cursor: pointer;
+}
+
+.toggle::after{
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-color: #f0f0f3;
+    border-radius: 50%;
+    position: absolute;
+    left: 2px;
+    top: 3px;
+    box-shadow: 2px 2px 4px #919191be, -2px -2px 4px #f6f6f6;
+    transition: translate 0.3s cubic-bezier(0.82,-0.35, 0.36, 1.43), box-shadow 0.1s ease-in;
+}
+
+input[type=checkbox]:checked + .toggle::after{
+    translate: 25px;
+    background-color: F9B208;
+     box-shadow:
+     2px 2px 4px #63636393, 
+     -2px -2px 4px hsl(223, 70%, 12%);
+}
+
+input[type=checkbox]:checked + .toggle{
+    background-color: hsl(223,10%,15%);
+   box-shadow:
+    inset 4px 4px 3px hsl(223, 10%, 12%),
+    inset -4px -4px 3px #32323293;
+}
+
+.darkcontainer {
+    background-color: hsl(223,10%,15%);
+    transition: 0.14s linear;;
+}
+
+.dark {
+    box-shadow: 10px 10px 30px #00000093, -4px -4px 30px hsl(223, 10%, 15%);
+    color: hsl(223, 10%, 75%);
+    transition: box-shadow 0.2s ease-out;
+}
+
+.dark:hover{
+   box-shadow:
+    inset -10px -10px 30px hsl(223, 10%, 12%),
+    inset 10px 10px 30px #50505066,
+     10px 10px 30px #00000093, 
+     -4px -4px 30px hsl(223, 10%, 15%);
+}
+
+.dark:active{
+    box-shadow:
+    inset 10px 10px 10px hsl(223, 10%, 12%),
+    inset -4px -4px 10px #32323293;
+}
+
+.darkscreen {
+    background: hsl(223,10%,15%);
+    box-shadow: inset 10px 10px 20px hsl(0, 20%, 0%), inset -10px -10px 20px hsla(0, 0%, 20%, 0.807);
+}
+
+.darkscreen p.answer {
+    color: #00FFAB;
+    font-weight: 500;
+}
+
+.darkbuttons button.clear {
+    background: #F9B208;
+    color: #F0134D;
+}
+
+.darkbuttons button.clear:hover {
+    box-shadow:
+    inset -10px -10px 15px hsla(42, 88%, 33%, 0.89),
+    inset  7px 7px 15px hsla(43, 100%, 86%, 0.86);
+}
+
+.darkbuttons button.clear:active {
+   box-shadow:
+    inset 4px 4px 13px hsla(42, 90%, 23%, 0.89),
+    inset  -4px -4px 10px hsla(44, 82%, 87%, 0.86);
+}
+
+.db > div > button:last-child,
+.db > div:nth-child(1) > button:nth-child(3){
+    color: #0079FF;
+}
+
+.db > div:last-child > button:last-child{
+    color: #08FFC8;
+}
+
+
